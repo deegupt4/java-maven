@@ -34,7 +34,7 @@ pipeline {
               nexusUrl: 'ad8dbb83dd51a4a199c770bf76c70c27-2073030886.ap-south-1.elb.amazonaws.com:8081',
               nexusVersion: 'nexus3',
               protocol: 'http',
-              repository: 'http://ad8dbb83dd51a4a199c770bf76c70c27-2073030886.ap-south-1.elb.amazonaws.com:8081/repository/DemoJava/',
+              repository: 'DemoJava',
               version: '1.0.0'
           
           
