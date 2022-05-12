@@ -1,4 +1,4 @@
-//pipeline java p
+//pipeline java 
 pipeline {
   
     agent { label 'openjdk11' }
