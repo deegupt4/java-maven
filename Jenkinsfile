@@ -31,7 +31,7 @@ pipeline {
           ], 
               credentialsId: 'f90d938e-b977-4030-9c11-7e966e97c54d',
               groupId: 'com.mycompany.app', 
-              nexusUrl: 'ad8dbb83dd51a4a199c770bf76c70c27-2073030886.ap-south-1.elb.amazonaws.com',
+              nexusUrl: 'ad8dbb83dd51a4a199c770bf76c70c27-2073030886.ap-south-1.elb.amazonaws.com:8081',
               nexusVersion: 'nexus3',
               protocol: 'http',
               repository: 'http://ad8dbb83dd51a4a199c770bf76c70c27-2073030886.ap-south-1.elb.amazonaws.com:8081/repository/DemoJava/',
