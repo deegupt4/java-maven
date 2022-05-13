@@ -6,7 +6,7 @@ pipeline {
    
     stages {
       
-      stage('Show versions') {
+      stage('show versions') {
       steps {
            container('jdk11') {
           sh 'docker --version'
@@ -16,7 +16,7 @@ pipeline {
       }
     }
       
-      stage('mvn Cleaning') {
+      stage('Cleaning') {
       steps {
            container('jdk11') {
            echo "Executing mvn clean:"
