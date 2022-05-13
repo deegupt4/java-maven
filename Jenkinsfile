@@ -3,24 +3,83 @@ pipeline {
   
     agent { label 'openjdk11' }
    
-
     stages {
       
-      stage('build docker') {
+      stage('Show versions') {
       steps {
-          container('docker') {
+           container('docker') {
           sh 'docker --version'
           sh 'java -version'
-          echo "Build maven jar"
-          sh 'mvn -B -DskipTests clean package' 
-          }
-         
+
+           }
       }
     }
-      
+
+      stages {
+
+      stage('mvn clean') {
+      steps {
+           container('docker') {
+           echo "Executing mvn clean:"
+           sh 'mvn clean'
+     
+           }
+      }
+    }
+
+      stage('mvn compile') {
+      steps {
+           container('docker') {
+           echo "mvn compile"
+           sh 'mvn compiler:compile'
+     
+           }
+      }
+    }
+
+      stage('mvn test compile') {
+      steps {
+           container('docker') {
+           echo "mvn test compile"
+           sh 'mvn compiler:testCompile'
+     
+           }
+      }
+    }
+ 
+      stage('mvn package') {
+      steps {
+           container('docker') {
+           echo "mvn package"
+           sh 'mvn package'
+     
+           }
+      }
+    }
+
+      stage('mvn install') {
+      steps {
+           container('docker') {
+           echo "mvn install"
+           sh 'mvn install'
+     
+           }
+      }
+    }
+    
+      stage('mvn validate') {
+      steps {
+           container('docker') {
+           echo "mvn validate"
+           sh 'mvn validate'
+     
+           }
+      }
+    }
+
       stage('upload to nexus'){
-        steps{
-         container('docker'){
+      steps{
+          container('docker'){
           nexusArtifactUploader artifacts: [
             [
               artifactId: 'my-app', 
