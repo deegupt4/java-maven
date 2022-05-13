@@ -14,9 +14,7 @@ pipeline {
            }
       }
     }
-
-      stages {
-
+      
       stage('mvn clean') {
       steps {
            container('docker') {
