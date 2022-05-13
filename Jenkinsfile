@@ -7,7 +7,7 @@ pipeline {
       
       stage('Show versions') {
       steps {
-           container('docker') {
+           container('jdk11') {
           sh 'docker --version'
           sh 'java -version'
 
@@ -15,9 +15,9 @@ pipeline {
       }
     }
       
-      stage('mvn clean') {
+      stage('mvn Cleaning') {
       steps {
-           container('docker') {
+           container('jdk11') {
            echo "Executing mvn clean:"
            sh 'mvn clean'
      
@@ -25,9 +25,9 @@ pipeline {
       }
     }
 
-      stage('mvn compile') {
+      stage('Compiling') {
       steps {
-           container('docker') {
+           container('jdk11') {
            echo "mvn compile"
            sh 'mvn compiler:compile'
      
@@ -35,9 +35,9 @@ pipeline {
       }
     }
 
-      stage('mvn test compile') {
+      stage('Testing Compilation') {
       steps {
-           container('docker') {
+           container('jdk11') {
            echo "mvn test compile"
            sh 'mvn compiler:testCompile'
      
@@ -45,9 +45,9 @@ pipeline {
       }
     }
  
-      stage('mvn package') {
+      stage('Packaging') {
       steps {
-           container('docker') {
+           container('jdk11') {
            echo "mvn package"
            sh 'mvn package'
      
@@ -55,9 +55,9 @@ pipeline {
       }
     }
 
-      stage('mvn install') {
+      stage('Installing') {
       steps {
-           container('docker') {
+           container('jdk11') {
            echo "mvn install"
            sh 'mvn install'
      
@@ -65,9 +65,9 @@ pipeline {
       }
     }
     
-      stage('mvn validate') {
+      stage('Testing') {
       steps {
-           container('docker') {
+           container('jdk11') {
            echo "mvn validate"
            sh 'mvn validate'
      
@@ -75,9 +75,9 @@ pipeline {
       }
     }
 
-      stage('upload to nexus'){
+      stage('uploading artifact to nexus3'){
       steps{
-          container('docker'){
+          container('jdk11'){
           nexusArtifactUploader artifacts: [
             [
               artifactId: 'my-app', 
