@@ -8,19 +8,19 @@ pipeline {
       
       stage('build docker') {
       steps {
-           container('docker') {
+        //   container('docker') {
           sh 'docker --version'
           sh 'java -version'
           echo "Build maven jar"
           sh 'mvn -B -DskipTests clean package' 
      
-           }
+        //   }
       }
     }
       
       stage('upload to nexus'){
         steps{
-          container('docker'){
+       //   container('docker'){
           nexusArtifactUploader artifacts: [
             [
               artifactId: 'my-app', 
@@ -38,7 +38,7 @@ pipeline {
               version: '1.0.0'
           
           
-          }
+        //  }
         
         }
       }
